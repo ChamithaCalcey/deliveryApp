@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list no-border>
+
+      <ion-item>
+        <h2>Email</h2>
+        <p>{{userDetail.username}}</p>
+      </ion-item>
+
+      <ion-item>
+        <h2>Mobile Number</h2>
+        <p>{{userDetail.mobileNumber}}</p>
+      </ion-item>
+
+      <ion-item>
+        <h2>Address</h2>
+        <p>{{userDetail.address}}</p>
+      </ion-item>
+
+      <ion-item>
+        <h2>Date Joined</h2>
+        <p>{{userDetail.created_date.split(" ")[0]}}</p>
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <div padding>
+        <button ion-button color="primary" (click)="logoutUser()" block>Logout</button>
+      </div>
+  </ion-toolbar>
+</ion-footer>

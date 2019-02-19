@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Order Detail
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list no-border>
+      <ion-item>
+        Vehicale
+        <ion-note item-end>
+        {{selectedOrder.vehicleMake}} {{selectedOrder.vehicleModel}}
+        </ion-note>
+      </ion-item>
+  
+      <ion-item>
+          Inquiry Date
+        <ion-note item-end>
+            {{selectedOrder.created_date.split(" ")[0]}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Delivered Date
+        <ion-note item-end>
+            {{selectedOrder.diliveryDate.split(" ")[0]}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        Order Status
+        <ion-note item-end>
+        {{selectedOrder.deliveryStatus}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <!-- <div *ngIf = "selectedOrder.deliveryStatus == 'INTRANSIT'"> -->
+        <div *ngIf = "selectedOrder.deliveryStatus == 'PENDING'">
+            <div padding>
+                <button ion-button (click)="completeOrder()" color="primary" block>Complete Order</button>
+            </div>
+        </div>
+    </ion-toolbar>
+  </ion-footer>

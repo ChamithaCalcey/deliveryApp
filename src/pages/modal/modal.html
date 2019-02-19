@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+      <ion-title>Complete Order</ion-title>
+      <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <ion-item style="position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 70%;
+    text-align: center;">
+      <ionic3-star-rating 
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "#488aff" 
+        defaultColor = "blue"
+        readonly="false"
+        [rating]="rating">
+      </ionic3-star-rating>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label color="#A4A4A4">Comments</ion-label>
+      <ion-textarea [(ngModel)]="comment"></ion-textarea>
+    </ion-item>  
+    <ion-item>
+      <ion-label color="#A4A4A4">Please rate your order</ion-label>
+    </ion-item>  
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <div padding>
+            <button ion-button color="primary" type="submit" block>Done</button>
+        </div>
+    </ion-toolbar>
+  </ion-footer>

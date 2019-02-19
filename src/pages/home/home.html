@@ -1,14 +1,53 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+        Add Inquiry
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form #inquiryForm="ngForm" (ngSubmit)="submitInquiryForm(inquiryForm)">
+    <ion-item>
+      <ion-label floating>Vehicale Make</ion-label>
+      <ion-input type="text" required [(ngModel)]="inquiryModel.make" ngControl="make" name="make"></ion-input>
+      <a item-right clear (click)="showToast('bottom', 'Eg: Toyota, Nissan, Honda, Suzuki, Mazda, BMW, Benz, etc.', 3000)">
+          <ion-icon name="information-circle"></ion-icon>
+      </a>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Vehicale Model</ion-label>
+      <ion-input type="text" required [(ngModel)]="inquiryModel.model" ngControl="model" name="model"></ion-input>
+      <a item-right clear (click)="showToast('bottom', 'Eg: Premio, March, Vezel, Alto, CX5, etc.', 3000)">
+          <ion-icon name="information-circle"></ion-icon>
+      </a>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Auto Part(s) Want to Request</ion-label>
+      <ion-input type="text" required [(ngModel)]="inquiryModel.autopart" ngControl="autopart" name="autopart"></ion-input>
+      <a item-right clear (click)="showToast('bottom', 'Eg: Battery, Shock Absorbers, Allow Wheels, Tires, etc.', 3000)">
+          <ion-icon name="information-circle"></ion-icon>
+      </a>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Delivery Address</ion-label>
+      <ion-input type="text" required [(ngModel)]="inquiryModel.address" ngControl="address" name="address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Mobile Number</ion-label>
+      <ion-input type="text" required [(ngModel)]="inquiryModel.mobile" ngControl="mobile" name="mobile"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Notes</ion-label>
+      <ion-input type="text" [(ngModel)]="inquiryModel.notes" ngControl="notes" name="notes"></ion-input>
+    </ion-item>
+  </form>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <div padding>
+          <button ion-button type="submit" color="primary" [disabled]="!inquiryForm.form.valid" (click)="inquiryForm.ngSubmit.emit()" block>Submit Inquiry</button>
+      </div>
+  </ion-toolbar>
+</ion-footer>

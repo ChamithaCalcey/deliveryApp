@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <img src="assets/imgs/logoNew.png" class="signUp-image">
+    <form (ngSubmit)="singUpForm(signUpForm)" #signUpForm="ngForm">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" required [(ngModel)]="signUpModel.email" ngControl="email" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Address</ion-label>
+          <ion-input type="text" required [(ngModel)]="signUpModel.address" ngControl="address" name="address"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Mobile Number</ion-label>
+          <ion-input required type="number" name="input" max="10" [(ngModel)]="signUpModel.mobile" ngControl="mobile" name="mobile"></ion-input>
+      </ion-item>    
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" required [(ngModel)]="signUpModel.password" ngControl="password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input type="password" required [(ngModel)]="signUpModel.confirmPassword" ngControl="confirmPassword" name="confirmPassword"></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <div padding>
+          <button ion-button color="primary" [disabled]="!signUpForm.form.valid" (click)="signUpForm.ngSubmit.emit()" block>Sign Up</button>
+      </div>
+  </ion-toolbar>
+</ion-footer>
+

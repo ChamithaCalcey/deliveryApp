@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Orders
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="timeline">
+      <ion-segment-button value="recent">
+        Recent
+      </ion-segment-button>
+      <ion-segment-button value="older">
+        Older
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="list-avatar-page">
+  <div [ngSwitch]="timeline">
+    <ion-list *ngSwitchCase="'recent'">
+      <ion-list-header>Recent Orders</ion-list-header>
+        <ion-item (click)="showOrder(data)" *ngFor ="let data of userRecentOrders">
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/logo.png">
+          </ion-avatar>
+          <h2 >{{data.vehicleModel}} {{data.vehicleMake}}</h2>
+          <p>{{data.created_date.split(" ")[0]}}</p>
+          <h3>Status: </h3>
+          <p class="red-class">{{data.deliveryStatus}}</p>
+          <ion-note item-end>{{data.created_date.split(" ")[1]}}</ion-note>
+        </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'older'">
+      <ion-list-header>Older Orders</ion-list-header>
+      <ion-item (click)="showOrder(data)" *ngFor ="let data of userOlderOrders">
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/logo.png">
+          </ion-avatar>
+          <h2 >{{data.vehicleModel}} {{data.vehicleMake}}</h2>
+          <p>{{data.created_date.split(" ")[0]}}</p>
+          <h3>Status: </h3>
+          <p class="red-class">{{data.deliveryStatus}}</p>
+          <ion-note item-end>{{data.created_date.split(" ")[1]}}</ion-note>
+        </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+page-profile {
+    .profile-image {
+        // height: 70vh;
+        width: auto;
+        margin: auto;
+        display: block;
+    } 
+
+    .edit-lable{
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 70%;
+        text-align: center;
+    }
+
+    .avatar-class {
+        height: 100px;
+        margin-bottom: 20px;
+    }
+}

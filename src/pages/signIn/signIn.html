@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <img src="assets/imgs/logoNew.png" class="signIn-image">
+    <form #signInform="ngForm" (ngSubmit)="signInForm(signInform)">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" required [(ngModel)]="signInModel.username" ngControl="username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" required [(ngModel)]="signInModel.password" ngControl="password" name="password"></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+
+  <div text-center padding>
+      Have you forgotten your password? <a button (click)="navigateToResetPassword()">Reset Here</a>
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <div padding>
+          <button ion-button [disabled]="!signInform.form.valid" (click)="signInform.ngSubmit.emit()"  type="submit" color="primary" block>Sign In</button>
+      </div>
+      <div text-center padding>
+        Do you wish to register for a new account?  <a button (click)="navigateToSignUp()">Click Here</a>
+      </div>
+  </ion-toolbar>
+</ion-footer>
