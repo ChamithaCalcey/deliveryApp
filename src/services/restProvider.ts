@@ -35,10 +35,10 @@ export class RestProvider {
                 let userToken = data['Authorization'];
                 this.storage.set('userJWTToken', userToken);
                 this.storage.set('userEmail', formdata.username);
-                resolve(true);
+                resolve(data);
             }, err => {
                 console.log(err);
-                resolve(false);
+                resolve(err.error);
             });
         });
     }
@@ -56,10 +56,10 @@ export class RestProvider {
         return new Promise(resolve => {
             this.http.post(apiUrl + 'auth-user-service/register/apds/user', body).subscribe(data => {
                 console.log(data);
-                resolve(true);
+                resolve(data);
             }, err => {
                 console.log(false);
-                resolve(false);
+                resolve(err);
             });
         });
     }

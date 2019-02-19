@@ -36,15 +36,22 @@ export class SignUpPage {
   }
 
   singUpForm = (form) => {
-    this.restProvider.createUser(form.value).then(success => {
-      console.log(success);
-      if (success){
-        this.navCtrl.push(SignInPage, {});
-        this.showToast('middle', 'You have successfully registered. Please login!', 5000);
-      } else {
-        this.showToast('middle', 'An error occurred', 5000);
-      }
-    });
+    console.log(form);
+    if (form.value.password != form.value.confirmPassword) {
+      this.showToast('middle', 'Passwords do not match. Please try again!', 5000);
+    } else if (form.value.password.length <= 6) {
+      this.showToast('middle', 'Passwords length must be more than 6 characters. Please try again!', 5000);
+    } else {
+      this.restProvider.createUser(form.value).then(data => {
+        console.log(data);
+        if (data['responseCode'] == 'SUCCESS'){
+          this.navCtrl.push(SignInPage, {});
+          this.showToast('middle', 'You have successfully registered. Please login!', 5000);
+        } else {
+          this.showToast('middle', data['responseMsg'], 5000);
+        }
+      });
+    }
 
     console.log(form.value);
   }

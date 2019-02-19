@@ -12,7 +12,7 @@ export class OrdersPage {
   loading: any;
   timeline: string = "recent";
   userRecentOrders = [];
-  userOlderOrders = [];
+  userCompletedOrders = [];
 
   constructor(public navCtrl: NavController, public restProvider: RestProvider, public loadingController:LoadingController) {
 
@@ -27,9 +27,20 @@ export class OrdersPage {
     this.loading.present();
     this.restProvider.getOrders().subscribe(data => {
       console.log(data);
-      if (data != null){
-        this.userRecentOrders = data['inquiry'];
-        this.userOlderOrders = data['inquiry'];
+      if (data != null) {
+        let recentOrders = [];
+        let completedOrders = [];
+        
+        data['inquiry'].forEach(order => {
+          if (order.deliveryStatus == 'COMPLETED') {
+            completedOrders.push(order);
+          } else {
+            recentOrders.push(order);
+          }
+        });
+        
+        this.userRecentOrders = recentOrders;
+        this.userCompletedOrders = completedOrders;
       } else {
         console.log("error loading orders");
       }

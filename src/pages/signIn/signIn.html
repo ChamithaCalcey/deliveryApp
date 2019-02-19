@@ -28,13 +28,11 @@
   
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-      <div padding>
-          <button ion-button [disabled]="!signInform.form.valid" (click)="signInform.ngSubmit.emit()"  type="submit" color="primary" block>Sign In</button>
-      </div>
-      <div text-center padding>
-        Do you wish to register for a new account?  <a button (click)="navigateToSignUp()">Click Here</a>
-      </div>
-  </ion-toolbar>
+<ion-footer padding>
+  <div>
+    <button ion-button [disabled]="!signInform.form.valid" (click)="signInform.ngSubmit.emit()" color="primary" block>Sign In</button>
+  </div>
+  <div text-center padding>
+    Do you wish to register for a new account?  <a button (click)="navigateToSignUp()">Click Here</a>
+  </div>
 </ion-footer>

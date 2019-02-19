@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Keyboard } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 import { SignUpPage } from '../signUp/signUp';
@@ -42,13 +42,13 @@ export class SignInPage {
   }
 
   signInForm(form) {
-    this.restProvider.getUser(form.value).then(success => {
-      console.log(success);
-      if (success){
+    this.restProvider.getUser(form.value).then(data => {
+      console.log(data);
+      if (data['status'] != 401){
         this.navCtrl.push(TabsPage, {});
-        this.showToast('middle', 'You have successfully Logged!', 5000);
+        this.showToast('middle', 'Successfully Logged-in!', 5000);
       } else {
-        this.showToast('middle', 'Unauthorized', 5000);
+        this.showToast('middle', data['message'], 5000);
       }
     });
 

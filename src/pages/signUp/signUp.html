@@ -36,10 +36,8 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-      <div padding>
-          <button ion-button color="primary" [disabled]="!signUpForm.form.valid" (click)="signUpForm.ngSubmit.emit()" block>Sign Up</button>
-      </div>
-  </ion-toolbar>
+  <div padding>
+      <button ion-button color="primary" [disabled]="!signUpForm.form.valid" (click)="signUpForm.ngSubmit.emit()" block>Sign Up</button>
+  </div>
 </ion-footer>
 

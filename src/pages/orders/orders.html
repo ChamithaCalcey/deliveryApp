@@ -10,7 +10,7 @@
         Recent
       </ion-segment-button>
       <ion-segment-button value="older">
-        Older
+        Completed
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -34,8 +34,8 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'older'">
-      <ion-list-header>Older Orders</ion-list-header>
-      <ion-item (click)="showOrder(data)" *ngFor ="let data of userOlderOrders">
+      <ion-list-header>Completed Orders</ion-list-header>
+      <ion-item (click)="showOrder(data)" *ngFor ="let data of userCompletedOrders">
           <ion-avatar item-start>
             <img src="../../assets/imgs/logo.png">
           </ion-avatar>

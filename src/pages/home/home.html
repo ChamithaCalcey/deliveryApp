@@ -35,7 +35,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Mobile Number</ion-label>
-      <ion-input type="text" required [(ngModel)]="inquiryModel.mobile" ngControl="mobile" name="mobile"></ion-input>
+      <ion-input type="text" required type="number" [(ngModel)]="inquiryModel.mobile" ngControl="mobile" name="mobile"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Notes</ion-label>
@@ -45,9 +45,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-      <div padding>
-          <button ion-button type="submit" color="primary" [disabled]="!inquiryForm.form.valid" (click)="inquiryForm.ngSubmit.emit()" block>Submit Inquiry</button>
-      </div>
-  </ion-toolbar>
+    <div padding>
+        <button ion-button type="submit" color="primary" [disabled]="!inquiryForm.form.valid" (click)="inquiryForm.ngSubmit.emit()" block>Submit Inquiry</button>
+    </div>
 </ion-footer>
